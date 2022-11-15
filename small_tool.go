@@ -87,3 +87,13 @@ func FilterEmoji(content string) string {
 	}
 	return newContent
 }
+
+// CutStr 截取指定长度字符串
+func CutStr1(str string, length int) string {
+	var size, n int
+	for i := 0; i < length && n < len(str); i++ {
+		_, size = utf8.DecodeRuneInString(str[n:])
+		n += size
+	}
+	return str[:n]
+}
